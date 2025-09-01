@@ -28,6 +28,8 @@ export class Confuse {
         const { searchParams } = new URL(request.url);
         const vpsUrl = searchParams.get('url');
         const protocol = searchParams.get('protocol');
+        // 如果订阅地址中存在自定义后端 优先级：自定义后端 > env.backend > default.backend
+        this.backend = searchParams.get('backend') ?? this.backend;
 
         const vps = vpsUrl!.split(/\||\n/).filter(Boolean);
         this.parser = new Parser(vps, [], protocol);
