@@ -20,6 +20,7 @@ export default {
                 .get('/', req => showPage(req, env))
                 .get('/favicon.ico', () => new Response(null, { status: 200 }))
                 .get('/sub', req => controller.toSub(req, env))
+                .get('/version', req => controller.getVersion(req, env))
                 .post('/api/add', req => controller.add(req))
                 .delete('/api/delete', req => controller.delete(req))
                 .get('/api/queryByCode', req => controller.queryByCode(req))

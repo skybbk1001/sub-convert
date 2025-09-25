@@ -1,5 +1,6 @@
 import type { ShortUrl } from '../types';
 import { dump } from 'js-yaml';
+import { DEFAULT_CONFIG } from '../config';
 import { Confuse } from '../core/confuse';
 import { Restore } from '../core/restore';
 import { ResponseUtil } from '../shared/response';
@@ -47,6 +48,12 @@ export class UrlService {
         } catch (error: any) {
             throw new Error(error.message || 'Invalid request');
         }
+    }
+
+    async getVersion(request: Request, env: Env): Promise<Response> {
+        const { searchParams } = new URL(request.url);
+        const backend = searchParams.get('backend') ?? env.BACKEND ?? DEFAULT_CONFIG.BACKEND;
+        return Response.redirect(`${backend}/version`, 302);
     }
 
     async add(long_url: string, baseUrl: string): Promise<ShortUrl> {

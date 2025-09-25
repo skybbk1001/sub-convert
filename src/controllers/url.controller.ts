@@ -26,6 +26,10 @@ export class UrlController {
         }
     }
 
+    async getVersion(request: Request, env: Env): Promise<Response> {
+        return this.service.getVersion(request, env);
+    }
+
     async add(request: Request): Promise<Response> {
         try {
             const { long_url, serve } = await request.json<{ long_url: string; serve?: string }>();
