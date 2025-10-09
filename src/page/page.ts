@@ -119,7 +119,7 @@ export function showPage(request: Request, env: Env): Response {
                             </sub-form-item>
 
                             <sub-form-item label="高级选项">
-                                <sub-checkbox key="advanced" span="7"></sub-checkbox>
+                                <sub-checkbox key="advanced" span="${advancedConfig.length}"></sub-checkbox>
                             </sub-form-item>
 
                             <sub-form-item label="短链地址">
@@ -294,7 +294,6 @@ export function showPage(request: Request, env: Env): Response {
                                 url.searchParams.set('url', this.#model.url);
                                 url.searchParams.set('insert', 'true');
                                 url.searchParams.set('config', this.#model.config);
-                                url.searchParams.set('list', 'true');
                                 url.searchParams.set('protocol', Array.isArray(this.#model.protocol) ? JSON.stringify(this.#model.protocol) : this.#model.protocol);
                                 
                                 const advancedOptions = this.#getAdvancedOptions(this.#model);
