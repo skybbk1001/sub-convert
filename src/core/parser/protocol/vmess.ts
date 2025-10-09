@@ -72,7 +72,7 @@ export class VmessParser extends Faker {
                 path: this.originConfig.path,
                 headers: {
                     ...proxy['ws-opts'].headers,
-                    Host: this.originConfig.host
+                    Host: this.originConfig.add
                 }
             };
         }

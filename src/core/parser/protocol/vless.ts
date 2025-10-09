@@ -72,7 +72,7 @@ export class VlessParser extends Faker {
                 path: decodeURIComponent(this.originConfig.searchParams?.get('path') ?? '/'),
                 headers: {
                     ...proxy['ws-opts'].headers,
-                    Host: this.originConfig.host
+                    Host: this.originConfig.hostname
                 }
             };
         }
