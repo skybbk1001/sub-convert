@@ -11,14 +11,14 @@
         "pages": "vite build"
     },
     "dependencies": {
-        "cloudflare-tools": "^0.2.2",
+        "cloudflare-tools": "^0.2.3",
         "js-yaml": "^4.1.0"
     },
     "devDependencies": {
         "@cloudflare/workers-types": "^4.20250425.0",
-        "@jiangweiye/eslint-config": "^0.1.14",
-        "@jiangweiye/prettier-config": "^0.0.18",
-        "@jiangweiye/tsconfig": "^0.0.11",
+        "@janone/eslint-config": "^0.0.4",
+        "@janone/prettier-config": "^0.0.1",
+        "@janone/tsconfig": "^0.0.1",
         "@types/js-yaml": "^4.0.9",
         "@types/node": "^22.10.2",
         "eslint": "^9.10.0",
@@ -28,4 +28,3 @@
         "wrangler": "^4.13.1"
     }
 }
-

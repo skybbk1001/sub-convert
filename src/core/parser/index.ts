@@ -59,7 +59,15 @@ export class Parser extends Convert {
                 }
 
                 if (v.startsWith('https://') || v.startsWith('http://')) {
-                    const subContent = await fetchWithRetry(v, { retries: 3 }).then(r => r.data.text());
+                    const subContent = await fetchWithRetry(v, { retries: 3, redirect: 'manual' }).then(async r => {
+                        if (r.status === 302) {
+                            const { origin } = new URL(v);
+                            const Location = r.headers['Location'];
+                            const res = await fetchWithRetry(`${origin}${Location}`);
+                            return res.data.text();
+                        }
+                        return r.data.text();
+                    });
                     const { subType, content } = this.getSubType(subContent);
 
                     if (subType === 'base64' && content) {
