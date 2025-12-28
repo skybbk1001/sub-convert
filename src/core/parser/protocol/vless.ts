@@ -69,11 +69,7 @@ export class VlessParser extends Faker {
         if (proxy.network === 'ws') {
             proxy['ws-opts'] = {
                 ...proxy['ws-opts'],
-                path: decodeURIComponent(this.originConfig.searchParams?.get('path') ?? '/'),
-                headers: {
-                    ...proxy['ws-opts'].headers,
-                    Host: this.originConfig.hostname
-                }
+                path: decodeURIComponent(this.originConfig.searchParams?.get('path') ?? '/')
             };
         }
     }

@@ -69,11 +69,7 @@ export class VmessParser extends Faker {
         if (proxy.network === 'ws') {
             proxy['ws-opts'] = {
                 ...proxy['ws-opts'],
-                path: this.originConfig.path,
-                headers: {
-                    ...proxy['ws-opts'].headers,
-                    Host: this.originConfig.add
-                }
+                path: this.originConfig.path
             };
         }
     }
@@ -144,3 +140,4 @@ export class VmessParser extends Faker {
         return this.#confuseConfig;
     }
 }
+
